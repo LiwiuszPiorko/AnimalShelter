@@ -13,26 +13,30 @@
     </thead>
     <tbody>
     <tr th:each="shelter:${pupile}">
-        <th><font face="fantasy"></font><font size="5">Imię pupila:</font></th> <td th:text="${shelter.name}"></td>
-        <th><font face="fantasy"></font><font size="5">Gatunek pupila:</font></th> <td th:text="${shelter.species}"></td>
+        <th>Imię pupila:</th><td><a th:href="@{/showAnimal}"
+                                    th:text="${shelter.name}"></a>
+
+    </td>
+        <th>Gatunek pupila:</th><td th:text="${shelter.species}"></td>
     </tr>
     </tbody>
 </table>
-<h2>
-    Informacje o poszczególnych pupilach:
-    <br>
-    <a href="https://i.wpimg.pl/O/644x437/d.wpimg.pl/1644393107--951114347/psy.jpg">Dowiedz sie więcej o "Burku"</a>
-    <br>
-    <a href="https://i.wpimg.pl/O/644x437/d.wpimg.pl/1644393107--951114347/psy.jpg">Dowiedz sie więcej o "Miaukocie"</a>
-    <br>
-</h2>
-<h3>
-    Tu zgłosisz swojego zwiezraczka do adopcji:
-</h3>
-<form action="/dodaj" method="post" th:object="${newTask}">
-    <input type="text" th:field="*{name}"placeholder="Imię"/><br>
-    <input type="number" th:field="*{species}"placeholder="Gatunek"/><br>
-    <button type="submit" value="Zapisz pupila"/><br>
+<h2> Wpisz który gatunek interesuje Cię najbardziej:</h2>
+<div style="width: 50px; margin: 10px">
+<form action="/sortAnimals" method="get">
+    <input type="text" name="gatunek" placeholder="Gatunek"/><br>
+    <input type="submit" value="Wybierz"/><br>
 </form>
+</div>
+<h3>
+    Tu zgłosisz swojego pupila do adopcji:
+</h3>
+<div style="width: 50px; margin: 10px">
+<form action="/saveAnimal" method="post" th:object="${newAnimals}">
+    <input type="text" th:field="*{name}"placeholder="Imię"/><br>
+    <input type="text" th:field="*{species}"placeholder="Gatunek"/><br>
+    <input type="submit" value="Zapisz"/><br>
+</form>
+</div>
 </body>
 </html>
