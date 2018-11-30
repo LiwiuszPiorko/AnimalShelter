@@ -41,7 +41,9 @@ public class ShelterControler {
         return "animals";
     }
     @GetMapping("/showAnimal")
-    public String showAnimalProfile(Model model){
+    public String showAnimalProfile(Model model,@RequestParam String name){
+        Animals animal = repository.getAnimalByName(name);
+        model.addAttribute("zwierze",animal);
         return "Info";
     }
 }

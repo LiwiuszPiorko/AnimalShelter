@@ -14,9 +14,9 @@ public class AnimalsRepository {
     }
 
     public AnimalsRepository() {
-        animalsList.add(new Animals("Burek ", "Pies"));
-        animalsList.add(new Animals("Miaukot ", "Kot"));
-        animalsList.add(new Animals("Sssyczek", "Wąż"));
+        animalsList.add(new Animals("Burek", "Pies", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9YKJQSwswwK_0v1mgUIXYl4rV7VGiQOQCIUOcGzY9YOgF1e8bJw"));
+        animalsList.add(new Animals("Miaukot", "Kot", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRZwIIoppvylZPt9Jd1iBiws8T_AqZPofU2yJfSixodNqsdl7jOA"));
+        animalsList.add(new Animals("Sssyczek", "Wąż", "https://static.miauhau.pl/media/articles/1511/12/17018-weze-w-kapeluszach.jpg"));
     }
 
     public List<Animals> getAnimals() {
@@ -28,12 +28,21 @@ public class AnimalsRepository {
     }
 
     public List<Animals> getAnimalSpecies(String gatunek) {
-        List<Animals> filtered=new ArrayList<>();
+        List<Animals> filtered = new ArrayList<>();
         for (Animals animals : animalsList) {
             if (gatunek.equals(animals.getSpecies()))
                 filtered.add(animals);
 
         }
         return filtered;
+    }
+
+    public Animals getAnimalByName(String name) {
+        for (Animals animals : animalsList) {
+            if (name.equals(animals.getName()))
+                return animals;
+
+        }
+        return null;
     }
 }

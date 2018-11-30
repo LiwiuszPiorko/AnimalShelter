@@ -13,7 +13,7 @@
     </thead>
     <tbody>
     <tr th:each="shelter:${pupile}">
-        <th>Imię pupila:</th><td><a th:href="@{/showAnimal}"
+        <th>Imię pupila:</th><td><a th:href="@{|/showAnimal?name=${shelter.name}|}"
                                     th:text="${shelter.name}"></a>
 
     </td>
